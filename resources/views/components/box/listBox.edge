@@ -1,0 +1,17 @@
+
+@component('components.box.box')
+
+    @slot('title')
+        Danh Sách {{ name }}
+    @endslot
+
+    @slot('action')
+        <button href="{{ actionAdd }}"  class="btn btn-success form-action">Thêm Mới</button>
+    @endslot
+
+    <div class="col-md-12" style="padding: 20px 50px">
+        @!yield($slot.main)
+    </div>
+   
+@endcomponent
+

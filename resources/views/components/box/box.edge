@@ -1,0 +1,27 @@
+ <!-- Default box -->
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">
+           @!yield($slot.title)
+        </h3>
+
+        <div class="box-tools pull-right">
+            @yield($slot.action)
+
+            @endyield
+        </div>
+    </div>
+    <div class="box-body">
+       @yield($slot.main)
+
+       @endyield
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        @yield($slot.footer)
+
+        @endyield
+    </div>
+    <!-- /.box-footer-->
+</div>
+<!-- /.box -->

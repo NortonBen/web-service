@@ -1,0 +1,32 @@
+@layout('layouts.admin')
+
+@section('content')
+  @component('components.box.addBox', name = 'Bài Đăng')
+    @!component('components.form.text', name = 'name', label = 'Tên Bài Dăng')
+    @!component('components.form.number', name = 'quantity', label = 'Số Lượng')
+    @!component('components.form.textarea', name = 'description', label = 'Mô Tả')
+    @!component('components.form.select', name = 'state_id', label = 'Trạng Thái', value=2, cfg = ['id', 'name'], list = [{ id: 1, name: 'Hiện' },{ id:2, name: 'Ẩn' }])
+    @!component('components.form.selects', name = 'state_id_2', label = 'Trạng Thái', value=[2,3], cfg = ['id', 'name'], list = [{ id: 1, name: 'Hiện' },{ id:2, name: 'Ẩn' },{ id:3, name: 'Săp Xóa' }])
+    @!component('components.form.html', name = 'detail', label = 'Chi Tiêt')
+    @!component('components.form.image', name = 'image', label = 'Hình Ảnh')
+    @!component('components.form.images', name = 'image', label = 'Hình Ảnh')
+  @endcomponent
+
+  @component('components.box.listBox', name = 'Bài Đăng')
+    @component('components.filter')
+      @!component('components.form.text', name = 'search', label = 'Tìm kiếm')
+    @endcomponent
+    @!component('components.table', isAction = false,  heads = ['Tên'], datas = [{ name: 'a' }, { name : 'b'}], path = 'tableContent.post')
+  @endcomponent
+
+@endsection 
+
+
+@section('style')
+  @include('partials.html_css')
+@endsection
+
+@section('script')
+  @include('partials.html_js')
+  @include('partials.media')
+@endsection

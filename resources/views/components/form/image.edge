@@ -1,0 +1,18 @@
+<div class="form-group">
+    <div class="col-md-12" style="padding-left: 0px">
+        <label for="">{{ label }}</label>
+    </div>
+    <div class="col-md-2" style="padding-left: 0px">
+        <button type="button" class="btn btn-success"onclick="window.MediaManage.SelectMedia('{{ name }}')">Chọn Ảnh</button>
+    </div>
+    <div class="col-md-10">
+        <input type="hidden" class="image" name="{{ name }}" value="{{ value }}" {{ ext }} />
+        <div class="col-md-12" style="margin: 10px;">
+            <img src="#" id="preview-{{ name }}" alt="" class="img-responsive img-thumbnail" />
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+   
+    <div class="clearfix"> </div>
+</div>

@@ -1,0 +1,19 @@
+  <script>
+    window.endpoint = {
+        upload: '{{ route('admin.file.upload') }}',
+        delete: '{{ route('admin.file.delete',{ id: 0 }) }}',
+        image: '{{ route('file.thumb',{ file: 0 }) }}',
+        brower: '{{ route('admin.file.media') }}',
+    }
+    window.folder = '{{ folder }}';
+    window.csrfToken = '{{ csrfToken }}';
+    window.endpoint.image = window.endpoint.image.substr(0,window.endpoint.image.length-1 );
+    window.endpoint.delete = window.endpoint.delete.substr(0,window.endpoint.delete.length-1 );
+</script>
+{{ script('admin/js/controllerMedia') }}
+
+<script>
+    $(document).ready(function() {
+        window.MediaManage.render();
+    });
+</script>

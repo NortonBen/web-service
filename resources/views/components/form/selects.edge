@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label for="">{{ label }}</label>
+    <select multiple class="form-control" name="{{ name }}" {{ ext }} >
+        @each(item in list)
+            <option  value="{{ item[cfg[0]] }}"
+            @if(value && value.includes(item[cfg[0]]))
+                selected
+            @endif
+            >{{ item[cfg[1]] }}</option>
+        @endeach
+    </select>
+</div>

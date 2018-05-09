@@ -1,0 +1,17 @@
+<div class="col-md-12">
+    <form class="filter">
+        @!yield($slot.main)
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('form.filter input[type=text]').keypress(function(e) {
+                if(e.which == 13) {
+                    $(this).parents().find('form.filter').submit();
+                }
+            });
+            $('form.filter select').change(function() {
+                $(this).parents().find('form.filter').submit();
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,28 @@
+@layout('layouts.media')
+
+
+@section('content')
+    <div class="col-md-3 list-tree">
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{{ route('admin.media') }}" >root</a></li>
+            @each(folder in folders.folders)
+                <li class="list-group-item"><a href="" >root</a></li>
+            @endeach
+        </ul>
+    </div>
+    <div class="col-md-9 list-image" id="list-image">
+        @each(file in files.rows)
+            <div class="item-image" data-id="{{ file.id }}">
+                <div class="listen" onClick="addHander(this)">
+                    <img class="img-responsive" src="{{ route('file.thumb', { file: file.id}) }}" />
+                    <p class="name">{{ file.name }}</p>
+                    <div class="clearfix"></div>
+                </div>
+                <form class="delete"  action='{{ route('admin.file.delete', {id : file.id}) }}' method="post">
+                    <button type="submit"><span>x</span></button>
+                </form>
+            </div>
+        @endeach
+        <div class="clearfix"></div>
+    </div>
+@endsection

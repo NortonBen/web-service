@@ -1,0 +1,61 @@
+<!-- Include JS files. -->
+{{ script('bower_components/froala/js/froala_editor.min.js') }}
+ 
+<!-- Include Code Mirror. -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+ 
+<!-- Include Plugins. -->
+{{ script('bower_components/froala/js/plugins/align.min.js') }}
+{{ script('bower_components/froala/js/plugins/char_counter.min.js') }}
+{{ script('bower_components/froala/js/plugins/code_beautifier.min.js') }}
+{{ script('bower_components/froala/js/plugins/code_view.min.js') }}
+{{ script('bower_components/froala/js/plugins/colors.min.js') }}
+{{ script('bower_components/froala/js/plugins/emoticons.min.js') }}
+{{ script('bower_components/froala/js/plugins/entities.min.js') }}
+{{ script('bower_components/froala/js/plugins/file.min.js') }}
+{{ script('bower_components/froala/js/plugins/font_family.min.js') }}
+{{ script('bower_components/froala/js/plugins/font_size.min.js') }}
+{{ script('bower_components/froala/js/plugins/fullscreen.min.js') }}
+{{ script('bower_components/froala/js/plugins/image.min.js') }}
+{{ script('bower_components/froala/js/plugins/image_manager.min.js') }}
+{{ script('bower_components/froala/js/plugins/inline_style.min.js') }}
+{{ script('bower_components/froala/js/plugins/line_breaker.min.js') }}
+{{ script('bower_components/froala/js/plugins/link.min.js') }}
+{{ script('bower_components/froala/js/plugins/lists.min.js') }}
+{{ script('bower_components/froala/js/plugins/paragraph_format.min.js') }}
+{{ script('bower_components/froala/js/plugins/paragraph_style.min.js') }}
+{{ script('bower_components/froala/js/plugins/quick_insert.min.js') }}
+{{ script('bower_components/froala/js/plugins/quote.min.js') }}
+{{ script('bower_components/froala/js/plugins/table.min.js') }}
+{{ script('bower_components/froala/js/plugins/save.min.js') }}
+{{ script('bower_components/froala/js/plugins/url.min.js') }}
+{{ script('bower_components/froala/js/plugins/video.min.js') }}
+
+
+<script>
+    // Replace the <textarea id="body"> and <textarea id="excerpt"> with a Froala
+    // instance.
+    $('.html').froalaEditor({
+        toolbarButtons: ['undo', 'redo', 'html', '-', 'fontSize', 'paragraphFormat', 'align', 'quote', '|', 'formatOL', 'formatUL', '|', 'bold', 'italic', 'underline', '|', 'insertLink', 'insertImage', 'insertTable'],
+        heightMin: 300,
+        imageMove: true,
+        imageUploadParam: 'qqfile',
+        imageUploadMethod: 'POST',
+        // Set the image upload URL.
+        imageUploadURL:  '{{ route('admin.file.upload') }}',
+        imageUploadParams: {
+            location: 'qqfile', // This allows us to distinguish between Froala or a regular file upload.
+            _token:  window.csrf_token // This passes the laravel token with the ajax request.
+        },
+        // URL to get all department images from
+        imageManagerLoadURL: '{{ route('admin.file.media.api') }}',
+        // Set the delete image request URL.
+        imageManagerDeleteURL: '{{ route('admin.file.api.delete') }}',
+        // Set the delete image request type.
+        imageManagerDeleteMethod: "DELETE",
+        imageManagerDeleteParams: {
+            _token: window.csrf_token
+        }
+    });
+</script>

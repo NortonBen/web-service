@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+    <thead>
+        @if(heads)
+           <tr>
+                @each(item in heads)
+                    <th>{{ item }}</th>
+                @endeach
+                @if(isAction)
+                  <th></th>
+                @endif
+            </tr>
+        @endif
+    </thead>
+    <tbody>
+        @!each(item in datas, include = path)
+    </tbody>
+</table>
