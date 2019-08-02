@@ -1,0 +1,30 @@
+@layout('layouts.admin')
+
+@section('title')
+  Thêm Bài Học
+@endsection
+
+@section('content')
+  @component('components.box.addBox', actionBack = route('admin.lessons.index', { course: course.id }), action = route('admin.lessons.store', { course: course.id }), csrf = csrfField() )
+    <ul class="list-group">
+      <li class="list-group-item">Tên Khóa Học: {{ course.name }} </li>
+      <li class="list-group-item">Mã Khóa Học: {{ course.id_number }} </li>
+    <ul>
+    <br>
+    <input type="hidden" name="course_id" value="{{ course.id }}" />
+    {{{ formText('name', 'Tên Bài Học') }}}
+    {{{ formSelect('video', 'Video Học', videos) }}}
+    {{{ formHtml('detail', 'Chi Tiết') }}}
+    {{{ formNumber('order_by', 'Vi Trí Xếp', 1 )}}}
+    {{{ formSelect('state_id', 'Trạng Thái', states) }}}
+  @endcomponent
+@endsection 
+
+
+@section('style')
+  @include('partials.html_css')
+@endsection
+
+@section('script')
+  @include('partials.html_js')
+@endsection

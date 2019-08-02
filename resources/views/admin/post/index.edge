@@ -1,0 +1,26 @@
+@layout('layouts.admin')
+
+@section('title')
+  Danh Sách Bài Đăng
+@endsection
+
+@section('content')
+  @component('components.box.listBox', actionAdd =  route('admin.posts.create'))
+    @component('components.filter')
+        <div class="col-md-3">
+            {{{ formText('search', 'Tìm Kiếm', request.input('search'))  }}}
+        </div>
+        <div class="col-md-3">
+            {{{ formDate('date', 'Ngày Viết', request.input('date'))  }}}
+        </div>
+        <div class="col-md-3">
+            {{{ formSelect('category_id', 'Danh Mục', categories, request.input('category_id', '0'))  }}}
+        </div>
+        <div class="col-md-3">
+            {{{ formSelect('state_id', 'Trạng Thái', states, request.input('state_id','0'))  }}}
+        </div>
+    @endcomponent
+    @!component('components.table', isAction = true,  heads = ['Tên bài Đăng', 'Người Đăng','Danh Mục' , 'Ngày Đăng', 'Trạng Thái'], datas = list.data , path = 'tableContent.post')
+  @endcomponent
+
+@endsection 

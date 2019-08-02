@@ -1,0 +1,16 @@
+<tr>
+    <td><a href="{{ route('admin.lessons.index', { course : item.id }) }}" >{{ item.name }}</a></td>
+    <td>{{ item.user.full_name }}</td>
+    <td class="col-md-2" >{{ item.category.name }}</td>
+    <td class="col-md-2" >{{ item.created_at }}</td>
+    <td>{{ item.state.name }}</td>
+    <td class="col-md-2">
+        <a class="btn btn-default" href="{{ route('admin.lessons.index', { course : item.id }) }}" >Bài Học</a>
+        <a class="btn btn-info" href="{{ route('admin.courses.edit', { id : item.id }) }}" >Sửa</a>
+        <a class="btn btn-default" href="{{ route('admin.courses.show', { id : item.id }) }}" >Xem</a>
+        <a class="btn btn-danger" onClick="document.getElementById('action-delete-post-{{ item.id }}').submit()" href="#" >Xóa</a>
+        <form id="action-delete-post-{{ item.id }}" class='delete' action="{{ route('admin.courses.destroy', { id : item.id }) }}?_method=DELETE" method="post">
+            <input name="_csrf" type="hidden" value="">   
+        </form>
+    </td>
+</tr>

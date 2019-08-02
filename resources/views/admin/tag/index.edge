@@ -1,0 +1,15 @@
+@layout('layouts.admin')
+
+@section('title')
+  Danh Sách Nhãn
+@endsection
+
+@section('content')
+  @component('components.box.listBox',  actionAdd = route('admin.tags.create'))
+    @component('components.filter')
+      @!component('components.form.text', name = 'search', label = 'Tìm kiếm')
+    @endcomponent
+    @!component('components.table', isAction = true,  heads = ['Tên Nhãn'], datas = list.data , path = 'tableContent.tag')
+  @endcomponent
+
+@endsection 

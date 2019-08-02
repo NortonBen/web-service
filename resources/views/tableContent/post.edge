@@ -1,3 +1,15 @@
 <tr>
     <td>{{ item.name }}</td>
+    <td>{{ item.user.full_name }}</td>
+    <td class="col-md-2" >{{ item.category.name }}</td>
+    <td class="col-md-2" >{{ item.created_at }}</td>
+    <td>{{ item.state.name }}</td>
+    <td class="col-md-2">
+        <a class="btn btn-info" href="{{ route('admin.posts.edit', { id : item.id }) }}" >Sửa</a>
+        <a class="btn btn-default" href="{{ route('admin.posts.show', { id : item.id }) }}" >Xem</a>
+        <a class="btn btn-danger" onClick="document.getElementById('action-delete-post-{{ item.id }}').submit()" href="#" >Xóa</a>
+        <form id="action-delete-post-{{ item.id }}" class='delete' action="{{ route('admin.posts.destroy', { id : item.id }) }}?_method=DELETE" method="post">
+            <input name="_csrf" type="hidden" value="">   
+        </form>
+    </td>
 </tr>

@@ -1,6 +1,5 @@
 <div class="form-group">
     <label for="">{{ label }}</label>
-    <textarea rows="4" class="form-control" name="{{ name }}"   {{ ext }} > 
-        {{ value }}
-    </textarea>
+    <textarea rows="4" class="form-control" name="{{ name }}"   {{ ext }} >{{ value }}</textarea>
+    <span class="error">{{ errorFor(name) }}</span>
 </div>

@@ -5,8 +5,8 @@ const Schema = use('Schema')
 class StateCourseSchema extends Schema {
   up () {
     this.create('state_courses', (table) => {
-      table.increments()
-      table.string('name', 100)
+      table.integer('id').unsigned().primary()
+      table.string('name', 100).notNullable()
     })
   }
 

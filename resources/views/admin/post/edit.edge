@@ -1,0 +1,28 @@
+@layout('layouts.admin')
+
+@section('title')
+  Sửa Bài Viết
+@endsection
+
+@section('content')
+  @component('components.box.editBox',actionBack = route('admin.posts.index'), action = route('admin.posts.update', { id : item.id })+'?_method=PUT', csrf = csrfField() )
+      {{{ formText('name', 'Tên Bài Đăng', item.name) }}}
+    {{{ formImage('image', 'Hình ảnh', item.image) }}}
+    {{{ formTextarea('description', 'Mô Tả', item.description) }}}
+    {{{ formHtml('detail', 'Chi Tiết', item.detail) }}}
+    {{{ formSelect('category_id', 'Danh mục', categories, item.category_id) }}}
+    {{{ formDate('push', 'Ngày Hiện', item.push)}}}
+    {{{ formSelects('tag_ids[]', 'Nhãn', tags, item.tags) }}}
+    {{{ formSelect('state_id', 'Trạng Thái', states, item.state_id) }}}
+  @endcomponent
+@endsection 
+
+
+@section('style')
+  @include('partials.html_css')
+@endsection
+
+@section('script')
+  @include('partials.html_js')
+  @include('partials.media')
+@endsection

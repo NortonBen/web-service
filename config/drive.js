@@ -29,6 +29,12 @@ module.exports = {
       driver: 'local'
     },
 
+    video: {
+      root: "E://Video//base",
+      driver: 'local'
+    },
+
+
     /*
     |--------------------------------------------------------------------------
     | S3

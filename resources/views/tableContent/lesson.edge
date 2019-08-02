@@ -1,0 +1,13 @@
+<tr>
+   
+    <td>{{ item.name }}</td>
+    <td class="col-md-2" >{{ item.state.name }}</td>
+    <td class="col-md-3">
+        <a class="btn btn-info" href="{{ route('admin.lessons.edit', { id : item.id, course: item.course_id }) }}" >Sửa</a>
+        <a class="btn btn-info" href="{{ route('admin.lessons.show', { id : item.id, course: item.course_id }) }}" >Xem</a>
+        <a class="btn btn-danger" onClick="document.getElementById('action-delete-post-{{ item.id }}').submit()" href="#" >Xóa</a>
+        <form id="action-delete-post-{{ item.id }}" class='delete' action="{{ route('admin.lessons.destroy', { id : item.id,  course: item.course_id }) }}?_method=DELETE" method="post">
+            <input name="_csrf" type="hidden" value="">   
+        </form>
+    </td>
+</tr>

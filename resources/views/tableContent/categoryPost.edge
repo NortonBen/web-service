@@ -1,0 +1,10 @@
+<tr>
+    <td>{{ item.name }}</td>
+    <td class="col-md-2">
+        <a class="btn btn-info" href="{{ route('admin.category_posts.edit', { id : item.id }) }}" >Sửa</a>
+        <a class="btn btn-danger" onClick="document.getElementById('action-delete-post-{{ item.id }}').submit()" href="#" >Xóa</a>
+        <form id="action-delete-post-{{ item.id }}" class='delete' action="{{ route('admin.category_posts.destroy', { id : item.id }) }}?_method=DELETE" method="post">
+            <input name="_csrf" type="hidden" value="">   
+        </form>
+    </td>
+</tr>

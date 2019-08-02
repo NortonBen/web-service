@@ -1,0 +1,11 @@
+@layout('layouts.admin')
+
+@section('title')
+  Sửa Nhãn
+@endsection
+
+@section('content')
+  @component('components.box.editBox', actionBack = route('admin.tags.index'), action = route('admin.tags.update', { id : item.id })+'?_method=PUT', csrf = csrfField() )
+   {{{  formText('name','Nhãn', item.name)  }}}
+  @endcomponent
+@endsection 

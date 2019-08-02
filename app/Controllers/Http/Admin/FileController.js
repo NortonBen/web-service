@@ -19,7 +19,6 @@ class FileController extends Controller {
             query.where('name','LIKE', `%${search}%`)
         }
         const files = await query.where('folder', folder).paginate(page)
-        console.log(search, files, folders)
         return view.render('admin.file', { files,folders })
     }
 
@@ -53,7 +52,6 @@ class FileController extends Controller {
             _file['content-type']  =  file.headers['content-type'],
             _file.folder = folder;
             if (await _file.save()) {
-                console.log(_file);
                 return { ..._file.toJSON(), success: true }
             }
         }

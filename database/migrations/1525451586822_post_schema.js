@@ -7,12 +7,14 @@ class PostSchema extends Schema {
     this.create('posts', (table) => {
       table.increments()
       table.string('name', 500)
-      table.string('images', 500)
+      table.string('image', 500)
       table.text('description', 1500)
       table.text('detail')
-      table.integer('state_id').unsigned().defaultTo(1)
+      table.integer('category_id').unsigned().references('id').inTable('category_posts')
+      table.integer('state_id').unsigned().references('id').inTable('state_posts')
+      table.integer('auth_id').unsigned().references('id').inTable('users')
+      table.date('push').notNullable()
       table.timestamps()
-      table.foreign('state_id').references('state_posts.id')
     })
   }
 

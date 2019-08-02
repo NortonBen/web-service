@@ -1,0 +1,29 @@
+@layout('layouts.admin')
+
+@section('title')
+  Thêm Khóa Học
+@endsection
+
+@section('content')
+  @component('components.box.addBox', actionBack = route('admin.courses.index'), action = route('admin.courses.store'), csrf = csrfField() )
+    {{{ formText('name', 'Tên Khóa Hocc') }}}
+     {{{ formText('id_number', 'Mã Khóa học') }}}
+    {{{ formImage('image', 'Hình ảnh') }}}
+    {{{ formTextarea('description', 'Mô Tả') }}}
+    {{{ formHtml('detail', 'Chi Tiết') }}}
+    {{{ formNumber('price', 'Giá' )}}}
+    {{{ formSelect('category_id', 'Danh mục', categories) }}}
+    {{{ formSelects('tag_ids[]', 'Nhãn', tags) }}}
+    {{{ formSelect('state_id', 'Trạng Thái', states) }}}
+  @endcomponent
+@endsection 
+
+
+@section('style')
+  @include('partials.html_css')
+@endsection
+
+@section('script')
+  @include('partials.html_js')
+  @include('partials.media')
+@endsection

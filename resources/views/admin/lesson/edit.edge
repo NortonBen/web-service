@@ -1,0 +1,31 @@
+@layout('layouts.admin')
+
+@section('title')
+  Sửa Danh Mục Bài Viết
+@endsection
+
+@section('content')
+  @component('components.box.editBox', name = 'Bài Đăng',actionBack = route('admin.lessons.index', { course: course.id }), action = route('admin.lessons.update', { id : item.id, course: course.id })+'?_method=PUT', csrf = csrfField() )
+    <ul class="list-group">
+      <li class="list-group-item">Tên Khóa Học: {{ course.name }} </li>
+      <li class="list-group-item">Mã Khóa Học: {{ course.id_number }} </li>
+    <ul>
+    <br>
+    <input type="hidden" name="course_id" value="{{ course.id }}" />
+    {{{ formText('name', 'Tên Bài Học', item.name) }}}
+    {{{ formSelect('video', 'Video Học', videos, item.video) }}}
+    {{{ formHtml('detail', 'Chi Tiết', item.detail) }}}
+    {{{ formNumber('order_by', 'Vi Trí Xếp', item.order_by )}}}
+    {{{ formSelect('state_id', 'Trạng Thái', states, item.state_id) }}}
+  @endcomponent
+@endsection 
+
+
+
+@section('style')
+  @include('partials.html_css')
+@endsection
+
+@section('script')
+  @include('partials.html_js')
+@endsection

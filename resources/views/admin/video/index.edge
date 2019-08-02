@@ -1,0 +1,15 @@
+@layout('layouts.admin')
+
+@section('title')
+  Danh Sách Video
+@endsection
+
+@section('content')
+  @component('components.box.listBox', actionAdd = route('admin.videos.create'))
+    @component('components.filter')
+      @!component('components.form.text', name = 'search', label = 'Tìm kiếm')
+    @endcomponent
+    @!component('components.table', isAction = true,  heads = ['ID','Tên Video','Trạng Thái', 'Ngày Tải Lên'], datas = list.data , path = 'tableContent.video')
+  @endcomponent
+
+@endsection 

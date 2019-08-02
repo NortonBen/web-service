@@ -1,0 +1,11 @@
+@layout('layouts.admin')
+
+@section('title')
+  Thêm Danh Mục Bài Viết
+@endsection
+
+@section('content')
+  @component('components.box.addBox', name = 'Danh Mục Bài Viết', actionBack = route('admin.category_posts.index'), action = route('admin.category_posts.store'), csrf = csrfField() )
+    {{{  formText('name','Tên')  }}}
+  @endcomponent
+@endsection 

@@ -4,7 +4,9 @@ class Controller {
         return await model.findOrFail(id)
     }
 
-
+    notification(session, message) {
+        
+    }
 }
 
 module.exports = Controller

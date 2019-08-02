@@ -1,0 +1,15 @@
+@layout('layouts.admin')
+
+@section('title')
+  Danh Sách Danh Mục Bài Viết
+@endsection
+
+@section('content')
+  @component('components.box.listBox', name = 'Danh Mục Bài Đăng', actionAdd = route('admin.category_posts.create'))
+    @component('components.filter')
+      @!component('components.form.text', name = 'search', label = 'Tìm kiếm')
+    @endcomponent
+    @!component('components.table', isAction = true,  heads = ['Tên Mục Bài Dăng'], datas = list.data , path = 'tableContent.categoryPost')
+  @endcomponent
+
+@endsection 

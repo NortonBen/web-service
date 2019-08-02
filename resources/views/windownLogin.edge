@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>
+            let data = {{{ toJSON(token) }}};
+            let event = new CustomEvent("login_success", { detail: data }); 
+            function submit() {
+               window.opener.parent.dispatchEvent(event);
+            }
+
+            window.onbeforeunload = function() {
+                const eventClose = new CustomEvent("close_windown_login", { detail: "close" }); 
+                window.opener.parent.dispatchEvent(eventClose);
+                return true;
+            };
+        </script>
+    </head>
+<body onload="submit()">
+</body>
+</html>

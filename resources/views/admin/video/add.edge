@@ -1,0 +1,12 @@
+@layout('layouts.admin')
+
+@section('title')
+  Thêm Video
+@endsection
+
+@section('content')
+  @component('components.box.addBox', actionBack = route('admin.videos.index'), action = route('admin.videos.store'), csrf = csrfField(), extend = 'enctype=multipart/form-data' )
+    {{{  formText('name','Tên Video')  }}}
+    {{{  formFile('file','File Tải Lên')  }}}
+  @endcomponent
+@endsection 

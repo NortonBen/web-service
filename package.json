@@ -17,7 +17,8 @@
   "private": true,
   "dependencies": {
     "@adonisjs/ace": "^5.0.1",
-    "@adonisjs/auth": "^3.0.4",
+    "@adonisjs/ally": "^2.0.2",
+    "@adonisjs/auth": "^3.0.5",
     "@adonisjs/bodyparser": "^2.0.2",
     "@adonisjs/cors": "^1.0.5",
     "@adonisjs/drive": "^1.0.2",
@@ -28,9 +29,11 @@
     "@adonisjs/session": "^1.0.23",
     "@adonisjs/shield": "^1.0.6",
     "@adonisjs/validator": "^5.0.3",
+    "amqplib": "^0.5.2",
     "md5": "^2.2.1",
     "mysql": "^2.15.0",
-    "sharp": "^0.20.2"
+    "sharp": "^0.20.2",
+    "uniqid": "^4.1.1"
   },
   "devDependencies": {},
   "autoload": {

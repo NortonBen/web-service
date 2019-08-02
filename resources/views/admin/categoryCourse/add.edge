@@ -1,0 +1,11 @@
+@layout('layouts.admin')
+
+@section('title')
+  Thêm Danh Mục Khóa Học
+@endsection
+
+@section('content')
+  @component('components.box.addBox', name = 'Thêm Danh Mục KHóa Học', actionBack = route('admin.category_courses.index'), action = route('admin.category_courses.store'), csrf = csrfField() )
+    {{{  formText('name','Tên')  }}}
+  @endcomponent
+@endsection 

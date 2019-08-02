@@ -1,0 +1,11 @@
+@layout('layouts.admin')
+
+@section('title')
+  Sửa Danh Mục Bài Viết
+@endsection
+
+@section('content')
+  @component('components.box.editBox', name = 'Bài Đăng',actionBack = route('admin.category_posts.index'), action = route('admin.category_posts.update', { id : item.id })+'?_method=PUT', csrf = csrfField() )
+   {{{  formText('name','Tên', item.name)  }}}
+  @endcomponent
+@endsection 

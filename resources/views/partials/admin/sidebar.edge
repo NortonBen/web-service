@@ -1,0 +1,71 @@
+<ul class="sidebar-menu" data-widget="tree">
+    <li class="header"> Danh Mục</li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> <span>Trang Chủ</span></a></li>
+     <li class="treeview">
+        <a href="#">
+        <i class="fa fa-dashboard"></i> <span>Người Dùng</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="{{ route('admin.category_posts.index') }}"><i class="fa fa-circle-o"></i> Người Dùng</a></li>
+        <li><a href="{{ route('admin.posts.index') }}"><i class="fa fa-circle-o"></i> Phân Quyền</a></li>
+        </ul>
+    </li>
+    <li><a href="{{ route('admin.tags.index') }}"><i class="fa fa-circle-o"></i> Nhãn</a></li>
+    <li class="treeview">
+        <a href="#">
+        <i class="fa fa-dashboard"></i> <span>Bài Viết</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="{{ route('admin.category_posts.index') }}"><i class="fa fa-circle-o"></i> Danh Mục</a></li>
+        <li><a href="{{ route('admin.posts.index') }}"><i class="fa fa-circle-o"></i> Bài Viết</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+        <i class="fa fa-dashboard"></i> <span> Khóa Học - Kiểm Tra</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="{{ route('admin.category_courses.index') }}"><i class="fa fa-circle-o"></i> Danh Mục Loại</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> Bài Kiểm Tra</a></li>
+        <li><a href="{{ route('admin.courses.index') }}"><i class="fa fa-circle-o"></i> Khóa Học</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+        <i class="fa fa-dashboard"></i> <span> Tài Nguyên</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+        <li><a href="{{ route('admin.videos.index') }}"><i class="fa fa-circle-o"></i> Video Bài Học</a></li>
+         <li><a href="#"><i class="fa fa-circle-o"></i> Hình Ảnh File</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> Live Stream</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+        <i class="fa fa-dashboard"></i> <span> Cài Đặt</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Chung</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Thông Tin Liên Hệ</a></li>
+        </ul>
+    </li>
+    <li class="header">Thống Kê</li>
+    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span> Phản Hồi</span></a></li>
+    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span> Bài Viết Yêu Thích</span></a></li>
+    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span> Bình Luận</span></a></li>
+</ul>

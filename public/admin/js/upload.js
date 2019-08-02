@@ -19,7 +19,7 @@ $('#fine-uploader-manual-trigger').fineUploader({
     callbacks: {
 
         onComplete: function (id, name, rep, xhr) {
-            console.log(id, name, rep, xhr);
+            console.log(id, name);
             if(!rep.id) {
                 return;
             }

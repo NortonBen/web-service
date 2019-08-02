@@ -1,0 +1,11 @@
+@layout('layouts.admin')
+
+@section('title')
+  Thêm Nhãn
+@endsection
+
+@section('content')
+  @component('components.box.addBox', actionBack = route('admin.tags.index'), action = route('admin.tags.store'), csrf = csrfField() )
+    {{{  formText('name','Nhãn')  }}}
+  @endcomponent
+@endsection 

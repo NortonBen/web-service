@@ -1,0 +1,29 @@
+@layout('layouts.admin')
+
+@section('title')
+  Sửa Khóa Học
+@endsection
+
+@section('content')
+  @component('components.box.editBox',actionBack = route('admin.courses.index'), action = route('admin.courses.update', { id : item.id })+'?_method=PUT', csrf = csrfField() )
+    {{{ formText('name', 'Tên Bài Đăng', item.name) }}}
+    {{{ formText('id_number', 'Mã Khóa học', item.id_number) }}}
+    {{{ formImage('image', 'Hình ảnh', item.image) }}}
+    {{{ formTextarea('description', 'Mô Tả', item.description) }}}
+    {{{ formHtml('detail', 'Chi Tiết', item.detail) }}}
+    {{{ formSelect('category_id', 'Danh mục', categories, item.category_id) }}}
+    {{{ formNumber('price', 'Giá', item.price )}}}
+    {{{ formSelects('tag_ids[]', 'Nhãn', tags, item.tags) }}}
+    {{{ formSelect('state_id', 'Trạng Thái', states, item.state_id) }}}
+  @endcomponent
+@endsection 
+
+
+@section('style')
+  @include('partials.html_css')
+@endsection
+
+@section('script')
+  @include('partials.html_js')
+  @include('partials.media')
+@endsection

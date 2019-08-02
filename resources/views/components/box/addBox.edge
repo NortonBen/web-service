@@ -14,7 +14,7 @@
     <div class="col-md-10 col-md-offset-1">
         <form id="form-edit-{{ prefix }}" action="{{ action }}" method="post" {{ extend }}>
             @!yield($slot.main)
-            {{ csrf }}
+           {{ csrf }}
             <div class="col-md-12" style="text-align: center;">
                 <button type="submit" class="btn btn-success form-action">Thêm Mới</button>
                 <a href="{{ actionBack }}" class="btn btn-danger form-action">Trở Lại</a>

@@ -5,8 +5,8 @@ const Schema = use('Schema')
 class StatePostSchema extends Schema {
   up () {
     this.create('state_posts', (table) => {
-      table.increments()
-      table.string('name', 100)
+      table.integer('id').unsigned().primary()
+      table.string('name', 100).notNullable()
     })
   }
 

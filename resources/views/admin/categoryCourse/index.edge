@@ -1,0 +1,15 @@
+@layout('layouts.admin')
+
+@section('title')
+  Danh Sách Danh Mục Khóa Học
+@endsection
+
+@section('content')
+  @component('components.box.listBox', name = 'Danh Mục Khóa Học', actionAdd = route('admin.category_courses.create'))
+    @component('components.filter')
+      @!component('components.form.text', name = 'search', label = 'Tìm kiếm')
+    @endcomponent
+    @!component('components.table', isAction = true,  heads = ['Tên Mục Khóa Học'], datas = list.data , path = 'tableContent.categoryCourse')
+  @endcomponent
+
+@endsection 

@@ -1,0 +1,23 @@
+@layout('layouts.admin')
+
+@section('title')
+  Danh Sách Bài Học
+@endsection
+
+@section('content')
+  @component('components.box.listBox', actionAdd = route('admin.lessons.create', { course: course.id }))
+    @component('components.filter')
+        <div class="col-md-6">
+            {{{ formText('search', 'Tìm Kiếm', request.input('search'))  }}}
+        </div>
+        <div class="col-md-3">
+            {{{ formDate('date', 'Ngày Viết', request.input('date'))  }}}
+        </div>
+        <div class="col-md-3">
+            {{{ formSelect('state_id', 'Trạng Thái', states, request.input('state_id','0'))  }}}
+        </div>
+    @endcomponent
+    @!component('components.table', isAction = true,  heads = ['Tiều Đề','Trạng Thái',], datas = list.data , path = 'tableContent.lesson')
+  @endcomponent
+
+@endsection 

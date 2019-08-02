@@ -2,7 +2,7 @@
 @component('components.box.box')
 
     @slot('title')
-        Thêm {{ name }}
+        Sửa {{ name }}
     @endslot
 
     @slot('action')
@@ -12,7 +12,6 @@
 
     <div class="col-md-10 col-md-offset-1">
         <form id="form-edit-{{ prefix }}" action="{{ action }}" method="post" {{ extend }}>
-            <input name="_method" type="hidden" value="PUT">
             @!yield($slot.main)
             {{ csrf }}
             <div class="col-md-12" style="text-align: center;">

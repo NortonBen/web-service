@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Blank Page</title>
+  <title>Trang Quản Lý |  </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-    {{ css('/bower_components/bootstrap/dist/css/bootstrap.min.css') }}
+    {{ css('/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') }}
     <!-- Font Awesome -->
-    {{ css('/bower_components/font-awesome/css/font-awesome.min.css') }}
+    {{ css('/admin/bower_components/font-awesome/css/font-awesome.min.css') }}
     <!-- Ionicons -->
-    {{ css('/bower_components/Ionicons/css/ionicons.min.css') }}
+    {{ css('/admin/bower_components/Ionicons/css/ionicons.min.css') }}
     <!-- Theme style -->
     {{ css('/admin/css/AdminLTE.min.css') }}
     <!-- AdminLTE Skins. Choose a skin from the css/skins
         folder instead of downloading all of them to reduce the load. -->
     {{ css('/admin/css/skins/_all-skins.min.css') }}
 
-    {{ css('/bower_components/select2/dist/css/select2.min.css') }}
+    {{ css('/admin/bower_components/select2/dist/css/select2.min.css') }}
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,6 +53,9 @@
             top: -27px;
             left: 0px;
         }
+        span.error {
+          color: red;
+        }
     </style>
     <script>
       window.csrf_token = '{{ csrf_token }}';
@@ -66,11 +69,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>IT</b>E</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>ITE</b>News</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -94,27 +97,7 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
-        </li>
-
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-      </ul>
+      @include('partials.admin.sidebar')
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -126,9 +109,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        @section('title') 
-            Blank page
-        @endsection
+        @!section('title')
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
@@ -138,7 +119,6 @@
 
     <!-- Main content -->
     <section class="content">
-
         @!section('content')
       <!-- /.box -->
 
@@ -163,24 +143,41 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-{{ script('/bower_components/jquery/dist/jquery.min.js') }}
+{{ script('/admin/bower_components/jquery/dist/jquery.min.js') }}
 <!-- Bootstrap 3.3.7 -->
-{{ script('/bower_components/bootstrap/dist/js/bootstrap.min.js') }}
+{{ script('/admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}
 <!-- SlimScroll -->
-{{ script('/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}
+{{ script('/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}
 <!-- FastClick -->
-{{ script('/bower_components/fastclick/lib/fastclick.js') }}
+{{ script('/admin/bower_components/fastclick/lib/fastclick.js') }}
 {{--    --}}
-{{ script('/bower_components/select2/dist/js/select2.full.min.js') }}
+{{ script('/admin/bower_components/select2/dist/js/select2.full.min.js') }}
 <!-- AdminLTE App -->
 {{ script('/admin/js/adminlte.min.js') }}
 <!-- AdminLTE for demo purposes -->
 {{ script('/admin/js/demo.js') }}
+{{ script('/admin/js/notify.min.js') }}
 <script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree();
-    $('select').select2();
+  $('.sidebar-menu').tree();
+  $('select').select2();
+  $('input[name="_csrf"]').map(function(i, item) {
+    var val = $(item).val();
+    if (val.length == 0) {
+      $(item).val('{{ csrfToken}}')
+    }
   })
+  $('form.delete').submit(function() {
+    return confirm("Bạn Có Muốn Xóa bản Ghi này");
+  })
+  $(document).ready(function(){
+    @if(flashMessage('notification'))
+      $('.box').notify('{{ flashMessage('notification') }}', {
+        position: 'top',
+        className: '{{ flashMessage('type') }}'
+      });
+    @endif
+  });
+
 </script>
  @!section('script') 
 </body>
